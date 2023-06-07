@@ -23,7 +23,6 @@ export class UserController {
     }
 
     async getAll(req: Request, res: Response): Promise<void> {
-        console.log(this);
         const result = await this.services.getAll();
         res.status(result.code).send(result.data || result.error);
     }

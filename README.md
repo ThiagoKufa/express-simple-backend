@@ -6,9 +6,9 @@ Descrição breve do projeto.
 
 O projeto utiliza uma arquitetura em camadas, separando as responsabilidades em diferentes módulos:
 
-- `src/features/user/user-controller.ts`: Lida com a interação do usuário.
-- `src/features/user/user-repository.ts`: Lida com a persistência e acesso aos dados.
-- `src/features/user/user-service.ts`: Contém a lógica de negócios da aplicação.
+-   `src/features/user/user-controller.ts`: Lida com a interação do usuário.
+-   `src/features/user/user-repository.ts`: Lida com a persistência e acesso aos dados.
+-   `src/features/user/user-service.ts`: Contém a lógica de negócios da aplicação.
 
 ## Configuração
 
@@ -19,30 +19,36 @@ Para rodar o projeto corretamente, siga as etapas abaixo:
 3. Copie o conteúdo do arquivo `.exemple.env` e cole no arquivo `.env`.
 4. Preencha as informações necessárias nas variáveis de ambiente do arquivo `.env`.
 
+## Husky
+
+O Husky está configurado para executar o Prettier automaticamente antes de cada commit. Isso garante que o código seja formatado corretamente e em conformidade com as configurações do Prettier antes de ser enviado para o repositório.
+
 ## Dependências
 
 O projeto possui as seguintes dependências:
 
-- `dotenv`: ^16.1.4
-- `express`: ^4.18.2
-- `firebase-admin`: ^11.9.0
-- `nodemon`: ^2.0.22
-- `zod`: ^3.21.4
+-   `dotenv` : `^16.1.4`
+-   `express` : `^4.18.2`
+-   `firebase-admin` : `^11.9.0`
+-   `zod` : `^3.21.4`
 
 ## Dependências de Desenvolvimento
 
 O projeto possui as seguintes dependências de desenvolvimento:
 
-- `@types/express`: ^4.17.17
-- `@types/node`: ^20.2.5
-- `ts-node`: ^10.9.1
-- `typescript`: ^5.1.3
+-   `nodemon` : `^2.0.22`
+-   `@types/express`: `^4.17.17`
+-   `@types/node` : `^20.2.5`
+-   `ts-node` : `^10.9.1`
+-   `typescript` : `^5.1.3`
+-   `husky` : `^8.0.3`
+-   `prettier` : `^2.8.8`
 
 ## Comandos Disponíveis
 
 No diretório do projeto, você pode executar os seguintes comandos:
 
-- `npm run dev`: Inicia o servidor em modo de desenvolvimento utilizando o Nodemon e o arquivo `src/main/server.ts`.
+-   `npm run dev`: Inicia o servidor em modo de desenvolvimento utilizando o Nodemon e o arquivo `src/main/server.ts`.
 
 ## Licença
 

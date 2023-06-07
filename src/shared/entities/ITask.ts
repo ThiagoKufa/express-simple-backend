@@ -1,11 +1,11 @@
-import { z } from "zod";
-import { userSchema } from "./IUser";
-import { projectSchema } from "./IProject";
+import { z } from 'zod';
+import { userSchema } from './IUser';
+import { projectSchema } from './IProject';
 
 const taskStatusSchema = z.union([
-  z.literal("active"),
-  z.literal("inactive"),
-  z.literal("completed"),
+  z.literal('active'),
+  z.literal('inactive'),
+  z.literal('completed'),
   z.string(),
 ]);
 

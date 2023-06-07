@@ -1,8 +1,9 @@
-import { IRepository } from '../../shared/IRepository';
+
 import { DocumentData, WithFieldValue } from 'firebase-admin/firestore';
 import { db } from './firebase-config';
+import { IDatabase } from '../../domain/interfaces/IDatabase';
 
-export class FirebaseRepository<T extends WithFieldValue<DocumentData>> implements IRepository<T> {
+export class FirebaseRepository<T extends WithFieldValue<DocumentData>> implements IDatabase<T> {
   collectionName: string;
   constructor(collectionName: string) {
     this.collectionName = collectionName;

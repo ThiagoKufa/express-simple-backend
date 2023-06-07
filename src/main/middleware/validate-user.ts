@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import { userSchema } from '../../shared/entities/IUser';
+import { userSchema } from '../../domain/entities/IUser';
 
 export function validateUser(req: Request, res: Response, next: NextFunction) {
   const validationResult = userSchema.safeParse(req.body);

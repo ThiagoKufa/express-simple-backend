@@ -1,20 +1,22 @@
-import { db } from '../../infra/firebase/firebase-config';
-import { FirebaseRepository } from '../../infra/firebase/firebase-repository';
-import { IRepository } from '../../shared/IRepository';
-import { IUser } from '../../shared/entities/IUser';
+import { IUser } from '../../domain/entities/IUser';
+import { IDatabase } from '../../domain/interfaces/IDatabase';
 
-class UserRepository {
-  private repo: IRepository<IUser> = new FirebaseRepository<IUser>('users');
+
+export class UserRepository {
+  database: IDatabase<IUser>;
+
+  constructor(database: IDatabase<IUser>) {
+    this.database = database;
+  }
 
   async create(user: IUser) {
-    const docRef = await this.repo.create(user);
-    const userWithId = { ...user, id: docRef.id };
+    const docRef = await this.database.create(user);
+    const userWithId: IUser = { ...user, id: docRef.id };
     return userWithId;
   }
+
   async getAll() {
-    const result = await this.repo.getAll();
+    const result = await this.database.getAll();
     return result;
   }
 }
-
-export const userRepository = new UserRepository();

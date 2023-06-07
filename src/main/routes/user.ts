@@ -1,9 +1,9 @@
 import express from 'express';
-import { UserController } from '../../features/user/user-controller';
 import { validateUser } from '../middleware/validate-user';
+import { userFactory } from '../../features/user/user-factory';
 
 const userRouter = express.Router();
-const userController = new UserController();
+const userController = userFactory();
 
 userRouter.get('/', userController.getAll);
 userRouter.post('/', validateUser, userController.create);

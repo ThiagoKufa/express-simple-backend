@@ -1,4 +1,4 @@
-export interface IRepository<T> {
+export interface IDatabase<T> {
   collectionName: string;
   create(data: T): Promise<T>;
   update(data: T, id: string): Promise<T>;

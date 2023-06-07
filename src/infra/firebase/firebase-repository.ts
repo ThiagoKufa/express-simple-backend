@@ -31,8 +31,6 @@ export class FirebaseRepository<T extends WithFieldValue<DocumentData>> implemen
 
     snapshot.forEach((doc) => {
       const userWithId: T = { ...(doc.data() as any), id: doc.id };
-      users.push(userWithId);
-
       users.push(userWithId as T);
     });
     return users;

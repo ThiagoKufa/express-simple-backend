@@ -7,15 +7,22 @@ export class FirebaseRepository<T extends WithFieldValue<DocumentData>> implemen
         this.collectionName = collectionName;
     }
 
-    async create(data: T): Promise<T> {
-        const docRef = await db.collection(this.collectionName).add(data);
-        const userWithId = { ...data, id: docRef.id };
+    async create(data: T, id: string): Promise<T> {
+        await db.collection(this.collectionName).doc(id).create(data);
+        const userWithId = { ...data, id };
         return userWithId;
     }
 
     async update(data: T, id: string): Promise<T> {
-        await db.collection(this.collectionName).doc(id).set(data);
-        const dataWithId: T = { ...data, id };
+        const userExists = await this.getOne(id);
+        if (!userExists) {
+            throw new Error('User not found');
+        }
+        await db
+            .collection(this.collectionName)
+            .doc(id)
+            .set({ ...userExists, ...data });
+        const dataWithId: T = { ...userExists, ...data, id };
         return dataWithId;
     }
 

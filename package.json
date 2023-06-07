@@ -4,12 +4,17 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "dev": "nodemon src/main/server.ts"
+        "dev": "nodemon src/main/server.ts",
+        "start": "node dist/main/server.js",
+        "build": "npm run build:ts",
+        "build:ts": "tsc"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "dependencies": {
+        "@types/cors": "^2.8.13",
+        "cors": "^2.8.5",
         "dotenv": "^16.1.4",
         "express": "^4.18.2",
         "firebase-admin": "^11.9.0",

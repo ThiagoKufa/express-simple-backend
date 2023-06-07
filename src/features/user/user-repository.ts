@@ -8,14 +8,19 @@ export class UserRepository {
         this.database = database;
     }
 
-    async create(user: IUser) {
-        const docRef = await this.database.create(user);
+    async create(user: IUser, id: string) {
+        const docRef = await this.database.create(user, id);
         const userWithId: IUser = { ...user, id: docRef.id };
         return userWithId;
     }
 
     async getAll() {
         const result = await this.database.getAll();
+        return result;
+    }
+
+    async update(id: string, data: IUser) {
+        const result = await this.database.update(data, id);
         return result;
     }
 }

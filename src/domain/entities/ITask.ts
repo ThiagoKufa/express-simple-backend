@@ -1,6 +1,5 @@
 import { z } from 'zod';
-import { userSchema } from './IUser';
-import { projectSchema } from './IProject';
+
 
 const taskStatusSchema = z.union([
     z.literal('active'),
@@ -15,11 +14,11 @@ export const taskSchema = z.object({
     status: taskStatusSchema,
     status_types: z.array(z.string()),
     timeStamps: z.array(z.date()),
-    responsible: userSchema,
+    responsible: z.array(z.string()),
     create_at: z.date(),
     update_at: z.date(),
     finish_at: z.date(),
-    project: projectSchema,
+    project: z.array(z.string()),
 });
 
 export type TaskStatus = z.infer<typeof taskStatusSchema>;

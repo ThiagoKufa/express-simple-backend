@@ -6,6 +6,7 @@ export function validateUser(req: Request, res: Response, next: NextFunction) {
 
     if (!validationResult.success) {
         const errorMessage = validationResult.error.errors[0];
+        
         return res.status(400).json({ error: errorMessage });
     }
 
